@@ -1,0 +1,16 @@
+
+Error at line no 1: Unterminated string "abcd\
+efgh
+
+Line no 3: Token <ID> Lexeme ijk found
+
+Scopetable# 1
+4 --> < ijk : ID >
+
+Error at line no 3: Unterminated string "
+
+Scopetable# 1
+4 --> < ijk : ID >
+
+Total Lines: 4
+Total Errors: 2
