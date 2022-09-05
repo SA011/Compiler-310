@@ -1,0 +1,37 @@
+PRINTLN_BUILTIN PROC
+    POP BX
+    POP AX
+    PUSH BX
+    XOR CX, CX
+    MOV BX, 10
+    XOR BP, BP
+    CMP AX, 0
+    JGE STORE_DIG
+    INC BP
+    XOR CX, CX
+    NEG AX
+    STORE_DIG:
+    XOR DX, DX
+    DIV BX
+    ADD DX, '0'
+    PUSH DX
+    INC CX
+    CMP AX, 0
+    JNE STORE_DIG
+    MOV AH, 2
+    CMP BP, 0
+    JE PRINT_DIG
+    MOV DL, '-'
+    INT 21H
+    PRINT_DIG:
+    MOV AH, 2
+    POP DX
+    INT 21H  
+    LOOP PRINT_DIG
+    MOV AH, 2
+    MOV DL, 0AH
+    INT 21H
+    MOV DL, 0DH
+    INT 21H
+    RET
+PRINTLN_BUILTIN ENDP
